@@ -11,13 +11,16 @@ RM      = rm -f
 default: verify
 
 $(OUTPUT): core.clj
-				$(FERRET) -o $(OUTPUT)
+	$(FERRET) -o $(OUTPUT)
 
 verify: $(OUTPUT)
-				$(ARDUINO) --board $(BOARD) --verify $(OUTPUT)
+	$(ARDUINO) --board $(BOARD) --verify $(OUTPUT)
 
 upload: $(OUTPUT)
-				$(ARDUINO) --board $(BOARD) --port $(PORT) --upload $(OUTPUT)
+	$(ARDUINO) --board $(BOARD) --port $(PORT) --upload $(OUTPUT)
 
 clean:
-				$(RM) $(OUTPUT)
+	$(RM) $(OUTPUT)
+
+serial:
+	picocom -b 9600 --imap lfcrlf $(PORT)
