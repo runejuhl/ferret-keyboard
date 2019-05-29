@@ -1,0 +1,35 @@
+#+TITLE: Arduino and Ferret sitting in a tree...
+#+AUTHOR: Rune Juhl Jacobsen <runejuhl@petardo.dk>
+
+* Getting started
+
++ Install Arduino from https://arduino.cc
++ Install Ferret from https://ferret-lang.org
+
+Guide at
+https://github.com/nakkaya/ferret/blob/1d1e9fd19647d4cea26945d6a69bc2a1e7ee37e5/ferret.org#arduino-boards
+
+** Set up Arduino CLI
+
+Install Arduino board stuff:
+
+#+BEGIN_SRC sh
+  arduino --install-boards arduino:avr:arduino_uno:1.6.23
+#+END_SRC
+
+* Running it
+
+To compile Ferret to C++, cross-compile to Arduino and upload:
+
+#+BEGIN_SRC sh
+  make upload
+#+END_SRC
+
+To watch the serial output (requires ~picocom~, hit ~C-a C-x~ to exit):
+
+#+BEGIN_SRC sh
+  make serial
+#+END_SRC
+
+[[file:ferret-arduino.png][Example of the code running: Espotek Labrador showing the PWM tone output on
+top, emacs on the bottom left and serial output on the bottom right]]
