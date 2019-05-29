@@ -17,6 +17,12 @@ Install Arduino board stuff:
   arduino --install-boards arduino:avr:arduino_uno:1.6.23
 #+END_SRC
 
+** Schematics
+
+See https://philectron.github.io/arduino/2016/05/03/arduino-projects-book-project-07/
+
+[[https://philectron.github.io/images/arduino-projects-book-project-07/breadboard-layout.jpg][Schematic, courtesy of Phi Luu, @philectron]]
+
 * Running it
 
 To compile Ferret to C++, cross-compile to Arduino and upload:
