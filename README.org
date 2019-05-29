@@ -21,7 +21,11 @@ Install Arduino board stuff:
 
 See https://philectron.github.io/arduino/2016/05/03/arduino-projects-book-project-07/
 
-[[https://philectron.github.io/images/arduino-projects-book-project-07/breadboard-layout.jpg][Schematic, courtesy of Phi Luu, @philectron]]
+#+BEGIN_HTML
+  <a href='https://philectron.github.io/images/arduino-projects-book-project-07/breadboard-layout.jpg'>
+    <img src="https://philectron.github.io/images/arduino-projects-book-project-07/breadboard-layout.jpg" alt="Schematic, courtesy of Phi Luu, @philectron">
+  </a>
+#+END_HTML
 
 * Running it
 
@@ -37,5 +41,9 @@ To watch the serial output (requires ~picocom~, hit ~C-a C-x~ to exit):
   make serial
 #+END_SRC
 
-[[file:ferret-arduino.png][Example of the code running: Espotek Labrador showing the PWM tone output on
-top, emacs on the bottom left and serial output on the bottom right]]
+#+BEGIN_HTML
+  <img src="./ferret-arduino.png" alt="Example of the code running: Espotek Labrador showing the PWM tone output on top, emacs on the bottom left and serial output on the bottom right">
+#+END_HTML
+
+Example of the code running: Espotek Labrador showing the PWM tone output on
+top, emacs on the bottom left and serial output on the bottom right.
