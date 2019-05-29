@@ -1,21 +1,25 @@
-(require '[ferret.arduino :as gpio])
-
-(comment
-  (configure-ferret! :command "~/projects/golang/bin/arduino-cli upload \\
-                               --fqbn arduino:avr:uno \\
-                               --port /dev/ttyACM0 \\
-                               --verbose \\
-                               --input ./blink.cpp"))
+(require '[ferret.arduino :as arduino])
 
 (configure-ferret! :command "~/bin/arduino \\
                                --board arduino:avr:uno \\
                                --port /dev/ttyACM0 \\
                                --upload ./blink.cpp")
 
-(gpio/pin-mode 13 :output)
+(arduino/pin-mode 13 :output)
+(arduino/pin-mode 7 :output)
+
+(def notes (list 262 294 330 349))
+(def speaker 0x8)
 
 (forever
- (gpio/digital-write 13 1)
- (sleep 500)
- (gpio/digital-write 13 0)
- (sleep 500))
+ (let [but1 (arduino/analog-read 0x0)
+       note (cond
+              (>= but1 1023) (nth notes 0)
+              (>= but1 768)  (nth notes 1)
+              (>= but1 256)  (nth notes 2)
+              (>= but1 1)    (nth notes 3))]
+   (println "but1: " but1)
+   (println "tone: " note)
+   (if tone
+     (arduino/tone speaker note)
+     (arduino/no-tone speaker))))
